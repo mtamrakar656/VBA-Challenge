@@ -18,13 +18,13 @@ For Each ws In Worksheets
     
         'Calculate the total volume for each ticker
         For i = 2 To lastrow
-            If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
-            ticker = Cells(i, 1).Value
-            total_volume = total_volume + Cells(i, 7).Value
+            If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
+            ticker = ws.Cells(i, 1).Value
+            total_volume = total_volume + ws.Cells(i, 7).Value
         
             'Store ticker and corresponding total value to cells
-            Range("J" & summary_table_row).Value = ticker
-            Range("K" & summary_table_row).Value = total_volume
+            ws.Range("J" & summary_table_row).Value = ticker
+            ws.Range("K" & summary_table_row).Value = total_volume
         
             'Move to next row to store value
             summary_table_row = summary_table_row + 1
